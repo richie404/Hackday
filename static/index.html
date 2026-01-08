@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SilentChat (E2EE + MySQL)</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <div class="title">SilentChat</div>
+        <div class="subtitle">Emoji + Sign Stickers • End-to-End Encrypted • MySQL ciphertext store</div>
+      </div>
+      <div class="status" id="status">Disconnected</div>
+    </header>
+
+    <section class="setup card">
+      <div class="row">
+        <label>Room ID</label>
+        <input id="room" placeholder="e.g. team9" />
+      </div>
+
+      <div class="row">
+        <label>My ID</label>
+        <input id="myId" readonly />
+      </div>
+
+      <div class="row">
+        <label>Peer ID</label>
+        <input id="peerId" placeholder="Paste other person's ID" />
+      </div>
+
+      <div class="row buttons">
+        <button id="connectBtn">Connect</button>
+        <button id="handshakeBtn" disabled>Start E2EE Handshake</button>
+      </div>
+
+      <div class="hint">
+        Open this page in <b>two devices/tabs</b>, use same Room ID, share “My ID”, paste into “Peer ID”, then click <b>Start E2EE Handshake</b> on both.
+      </div>
+
+      <div class="roster" id="roster"></div>
+      <div class="cryptoState" id="cryptoState">E2EE: not ready</div>
+    </section>
+
+    <main class="chat card" id="chat">
+      <div class="messages" id="messages"></div>
+
+      <div class="quickbar">
+        <div class="sectionTitle">Emoji</div>
+        <div class="emojiRow" id="emojiRow"></div>
+
+        <div class="sectionTitle">Sign Stickers (tap)</div>
+        <div class="stickerGrid" id="stickerGrid"></div>
+      </div>
+
+      <footer class="composer">
+        <button class="bigBtn" id="sendHello">👋</button>
+        <button class="bigBtn" id="sendThanks">🙏</button>
+        <button class="bigBtn" id="sendHelp">🆘</button>
+        <button class="bigBtn" id="clearBtn">Clear</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
